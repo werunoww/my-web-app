@@ -1,0 +1,8 @@
+<ul class="nav justify-content-center border-bottom pb-3 mb-3">
+    <li class="nav-item"><a href="{{ url_for('main.index') }}" class="nav-link px-2 text-body-secondary">Главая страница</a></li>
+    {% if current_user.is_authenticated %}
+        <li class="nav-item"><a href="{{ url_for('apiary.create') }}" class="nav-link px-2 text-body-secondary">Добавить пасеку</a></li>
+    {% endif %}
+    <li class="nav-item"><a href="{{ url_for('apiary.all') }}" class="nav-link px-2 text-body-secondary">Наши пасеки</a></li>
+    <li class="nav-item"><a href="{{ url_for('main.rules') }}" class="nav-link px-2 text-body-secondary">Правила</a></li>
+</ul>

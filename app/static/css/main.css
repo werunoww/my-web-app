@@ -1,0 +1,37 @@
+@import url('fonts.css');
+
+body{
+    background-color: #f9f9f9;
+}
+
+.page{
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header{
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.content{
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1 1 auto;
+}
+
+h1{
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+}
+
+.header__img{
+    display: block;
+    width: 60px;
+    height: 60px;
+}

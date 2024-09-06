@@ -1,0 +1,64 @@
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.container {
+    margin: 10px 70px 70px 10px;
+}
+table {
+	width: 1000px;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+td {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+	padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+	color: #000000;
+}
+
+th{
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    padding: 15px;
+    background-color: rgba(255,153,255,0.2);
+    color: #fff;
+}
+
+th {
+	text-align: left;
+}
+
+thead {
+	th {
+		background-color: #FF9933;
+	}
+}
+
+tbody {
+	tr {
+		&:hover {
+			background-color: rgba(255,255,255,0.3);
+		}
+	}
+	td {
+		position: relative;
+		&:hover {
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -9999px;
+				bottom: -9999px;
+				background-color: rgba(255,255,255,0.2);
+				z-index: -1;
+			}
+		}
+	}
+}

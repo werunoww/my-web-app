@@ -1,0 +1,49 @@
+ {% extends 'main/base.html' %}
+
+ {%block title%} Добавление пасеки {%endblock%}
+
+ {%block content%}
+ <form method="post" class="form-control d-flex flex-column gap-2">
+    <input name="beeCount" type="text" placeholder="Количество пчёл" class="form-control">
+    <input name="breed" type="text" placeholder="Порода" class="form-control">
+    <input name="hiveType" type="text" placeholder="Тип улея" class="form-control">
+    <input name="feed" type="text" placeholder="Питание для пчёл" class="form-control">
+
+    <!-- Поля для хранения координат -->
+    <input type="hidden" name="latitude" id="latitude">
+    <input type="hidden" name="longitude" id="longitude">
+    
+    <!-- Карта для выбора местоположения -->
+    <div id="map" style="height: 400px; margin-bottom: 10px;"></div>
+
+    <input value="Добавить" type="submit" class="btn btn-success">
+ </form>
+
+ <!-- Подключение Leaflet -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+ <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+ <script>
+   // Инициализация карты
+   var map = L.map('map').setView([56.3287, 44.002], 10); // Центр карты — Нижний Новгород
+
+   // Добавление слоя карты
+   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+       maxZoom: 19,
+   }).addTo(map);
+
+   var marker;
+
+   // Обработчик клика на карте для установки маркера и получения координат
+   map.on('click', function(e) {
+       if (marker) {
+           map.removeLayer(marker);
+       }
+       marker = L.marker(e.latlng).addTo(map);
+       
+       // Установка значений широты и долготы в скрытые поля формы
+       document.getElementById('latitude').value = e.latlng.lat;
+       document.getElementById('longitude').value = e.latlng.lng;
+   });
+</script>
+{%endblock%}

@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{%block title%} Редактирование пасеки {%endblock%}
+
+{%block content%}
+<form method="post" class="form-control d-flex flex-column gap-2">
+   <input value='{{ apiary.beeCount }}'' name="beeCount" type="text" placeholder="Количество пчёл" class="form-control">
+   <input value='{{ apiary.breed }}' name="breed" type="text" placeholder="Порода" class="form-control">
+   <input value='{{ apiary.hiveType }}' name="hiveType" type="text" placeholder="Тип улея" class="form-control">
+   <input value='{{ apiary.feed }}' name="feed" type="text" placeholder="Питание для пчёл" class="form-control">
+   <input value="Обновить" type="submit" class="btn btn-success">
+</form>
+{%endblock%}
